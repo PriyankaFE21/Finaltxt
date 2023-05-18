@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./final.css">
+    <title>Text Editorrrrr</title>
+</head>
+<body>
+    <div class="edit">
+
+        <select onchange="formatDoc('formatBlock', this.value);">
+           <option value="" selected="" hidden="" disabled="">Styles</option>
+           <option value="h1" >Heading1</option>
+           <option value="h2">Heading2</option>
+           <option value="h3">Heading3</option>
+           <option value="h4">Heading4</option>
+           <option value="h5">Heading5</option>
+           <option value="h6">Heading6</option>
+           <option value="p">Paragraph</option>
+       </select>   
+       
+      <button data-element = "bold" class="btns btn_active" ><img src="./Images/Bold.svg"></button>
+      <button data-element = "italic" class="btns btn_active"><img src="./Images/Italics.svg"></button>
+      <button data-element = "underline" class="btns btn_active"><img src="./Images/underlined.svg"></button>
+      <button data-element = "insertUnorderedList" class="btns btn_active"><img src="./Images/bullets.svg"></button>
+      <button data-element = "insertOrderedList" class="btns btn_active"><img src="./Images/Numbers.svg"></button>
+      <button data-element = "createLink" class="btns link btn_active" id="createLink"><img src="./Images/Add link.svg"></button>
+      <button  id="code" onclick="codeopen()" class="btns btn_active"><img src="./Images/Code.svg"></button>
+      <button data-element="insertHorizontalRule" class="btns btn_active"><img src="./Images/Subscriptline.svg"></button>
+      <button data-element="formatBlock"  data-block="blockquote" class="btns btn_active">
+       <img src="./Images/Quote.svg"></button>
+       <button id="poll-button" class="btns">Poll</button>
+       <button id="custom-button" class="btns">Custom Button</button>
+
+      <button onclick="document.querySelector('.filechose').click()" style="background: none; border:none;"> 
+       <input type="file" class="filechose" style="display: none;">
+       <img src="./Images/Add Image.svg">
+   </button>
+   </div>
+<div role="textbox" contenteditable="true"  aria-multiline="true" class="editorbox" id="editbox" name="textField">
+</div>
+<script src="./final.js"></script>
+</body>
+</html>

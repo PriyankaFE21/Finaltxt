@@ -1,0 +1,53 @@
+.editorbox{
+    /* height: auto; */
+    /* border: 1px solid #000; */
+    padding: 10px;
+    margin: 20px auto;
+    height: 85vh;
+    overflow-y: scroll;
+}
+a,.link{
+    cursor: pointer;
+  }
+  .editorbox img{
+    width: 100px;
+    height: 100px;
+  }
+  blockquote{
+    background-color: aqua;
+  }
+  .filechose{
+    border: none;
+    width: 75px;
+    opacity: 0.5;
+    }
+    .btns{
+      border: none;
+      background: none;
+    }
+    /* .code1{
+        background-color:#000;
+        height:auto;
+        color:#fff;
+        padding:20px;
+      } */
+      .active1 {
+        background-color: silver;
+      }
+      .edit{
+        display: flex;
+        gap:20px;
+        flex-wrap: wrap;
+        width:780px;
+        border: 1px solid #EAEAEA;
+        border-left: none;
+        border-right: none;
+      }
+      .poll ul {
+        list-style: none;
+        padding: 0;
+      }
+    
+      .poll li {
+        margin-top: 5px;
+      }
