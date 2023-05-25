@@ -50,12 +50,22 @@ reader.onload = function(){
 reader.readAsDataURL(input.files[0])   //it will read the data as base 64(for images)
 },false)
 
-var btns1 = document.querySelectorAll(".btn_active");
+var btns1 = document.querySelectorAll(".zed_button_icon");
 btns1.forEach( a=>{
   a.addEventListener("click",()=>{
-  a.classList.toggle("active1");
+  a.classList.toggle("active");
    })
 })
+// var btns2 = document.querySelector(".zed_button_icon_cb");
+// btns2.forEach( b=>{
+//   b.addEventListener("click",()=>{
+//   b.classList.toggle("active1");
+//    })
+// })
+// var btns2 = document.querySelector(".zed_button_icon_cb");
+//  function cbFunction(){
+//   btns2.classList.add("active1");
+//  }
 //poll button
  var pollButton =document.getElementById('poll-button');
 pollButton.addEventListener('click', () => {
@@ -64,11 +74,11 @@ pollButton.addEventListener('click', () => {
     const pollElement = document.createElement('div');
     pollElement.classList.add('poll');
     pollElement.innerHTML = `<p>${question}</p>
-    <ul>
-        <li><input type="radio" name="poll-option" value="Option 1"> Option 1</li>
-    <li><input type="radio" name="poll-option" value="Option 2"> Option 2</li>
-    <li><input type="radio" name="poll-option" value="Option 3"> Option 3</li>
-    </ul>`;
+    
+        <input type="radio" name="poll-option" value="Option 1"> Option 1<br>
+    <input type="radio" name="poll-option" value="Option 2"> Option 2<br>
+    <input type="radio" name="poll-option" value="Option 3"> Option 3<br>
+    `;
     document.execCommand('insertHTML', false, pollElement.outerHTML);
     }
     });
@@ -83,4 +93,109 @@ pollButton.addEventListener('click', () => {
         customButtonElement.href = url;
         document.execCommand('insertHTML', false, customButtonElement.outerHTML);
         }
-        });    
+        });        
+//Insert Blockquotes       
+       function insertblockquote() {
+        var selection = window.getSelection();
+        var selectedText = selection.toString();
+      
+        if (selectedText.length > 0) {
+          var range = selection.getRangeAt(0);
+          var blockquote1 = document.createElement('blockquote');
+          blockquote1.classList.add('blockquote1')
+    
+          blockquote1.innerHTML = selectedText;
+          range.deleteContents();
+          range.insertNode(blockquote1);
+        } else {
+          var blockquote1 = document.createElement('blockquote');
+          blockquote1.classList.add('blockquote1')
+          blockquote1.innerHTML = '&nbsp;';
+          editable.appendChild(blockquote1);
+        }
+      }
+//Insert Pullquotes
+       function insertpullquote() {
+        var selection = window.getSelection();
+        var selectedText = selection.toString();
+      
+        if (selectedText.length > 0) {
+          var range = selection.getRangeAt(0);
+          var blockquote2 = document.createElement('blockquote');
+          blockquote2.classList.add('blockquote2')
+    
+          blockquote2.innerHTML = selectedText;
+          range.deleteContents();
+          range.insertNode(blockquote2);
+        } else {
+          var blockquote2 = document.createElement('blockquote');
+          blockquote2.classList.add('blockquote2')
+          blockquote2.innerHTML = '&nbsp;';
+          editable.appendChild(blockquote2);
+        }
+      }
+//Insert Code Blocks
+      function insertCodeBlock() {
+        var selection = window.getSelection();
+        var selectedText = selection.toString();
+      
+        if (selectedText.length > 0) {
+          var range = selection.getRangeAt(0);
+          var code2 = document.createElement('code');
+          code2.classList.add('code2');
+      
+          code2.textContent = selectedText;
+          range.deleteContents();
+          range.insertNode(code2);
+        } else {
+          var code2 = document.createElement('code');
+          code2.classList.add('code2');
+          code2.innerHTML = '&nbsp;';
+          editable.appendChild(code2);
+        }
+      }
+//Tag selection and enter function
+      function whichTag(tagName){
+        var sel, containerNode;
+        var tagFound = false;
+        tagName = tagName.toUpperCase();
+        if (window.getSelection) {
+            sel = window.getSelection();
+            if (sel.rangeCount > 0) {
+                containerNode = sel.getRangeAt(0).commonAncestorContainer;
+            }
+         }else if( (sel = document.selection) && sel.type != "Control" ) {
+             containerNode = sel.createRange().parentElement();
+         }
+         while (containerNode) {
+             if (containerNode.nodeType == 1 && containerNode.tagName == tagName) {
+                 tagFound = true;
+                 containerNode = null;
+             }else{
+                 containerNode = containerNode.parentNode;
+             }
+         }
+         return tagFound;
+      }
+      function checkBlockquote() {
+        editable.onkeydown = function(event) {
+          var key = event.keyCode || event.charCode;
+          var isShiftKey = event.shiftKey;
+          if (whichTag("blockquote")){
+            console.log(whichTag("blockquote"))
+          if (key === 13 && !isShiftKey) {
+            console.log((key === 13 && !isShiftKey),"jhjjh")
+            document.execCommand('insertHTML', false, '<br>');
+            //document.getElementById('blockquote').classList.add('edit_icons');
+          }
+        }
+        else if(whichTag("code")){
+          console.log(whichTag("blockquote"))
+          if (key === 13 && !isShiftKey) {
+            console.log((key === 13 && !isShiftKey),"jhjjh")
+            document.execCommand('insertHTML', false, '<br>');
+          }
+       }
+        };
+      
+      };

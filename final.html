@@ -5,12 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./final.css">
+    <link rel="stylesheet" href="./editor.css">
     <title>Text Editorrrrr</title>
 </head>
-<body>
+<body  onLoad="checkBlockquote();">
     <div class="edit">
 
-        <select onchange="formatDoc('formatBlock', this.value);">
+        <!-- <select onchange="formatDoc('formatBlock', this.value);">
            <option value="" selected="" hidden="" disabled="">Styles</option>
            <option value="h1" >Heading1</option>
            <option value="h2">Heading2</option>
@@ -19,28 +20,38 @@
            <option value="h5">Heading5</option>
            <option value="h6">Heading6</option>
            <option value="p">Paragraph</option>
-       </select>   
-       
-      <button data-element = "bold" class="btns btn_active" ><img src="./Images/Bold.svg"></button>
-      <button data-element = "italic" class="btns btn_active"><img src="./Images/Italics.svg"></button>
-      <button data-element = "underline" class="btns btn_active"><img src="./Images/underlined.svg"></button>
-      <button data-element = "insertUnorderedList" class="btns btn_active"><img src="./Images/bullets.svg"></button>
-      <button data-element = "insertOrderedList" class="btns btn_active"><img src="./Images/Numbers.svg"></button>
-      <button data-element = "createLink" class="btns link btn_active" id="createLink"><img src="./Images/Add link.svg"></button>
-      <button  id="code" onclick="codeopen()" class="btns btn_active"><img src="./Images/Code.svg"></button>
-      <button data-element="insertHorizontalRule" class="btns btn_active"><img src="./Images/Subscriptline.svg"></button>
-      <button data-element="formatBlock"  data-block="blockquote" class="btns btn_active">
-       <img src="./Images/Quote.svg"></button>
-       <button id="poll-button" class="btns">Poll</button>
-       <button id="custom-button" class="btns">Custom Button</button>
+       </select>    -->
+       <select onchange="formatDoc('formatBlock', this.value);"  id="select-option">
+        <option value="" selected="" hidden="" disabled="">Normal</option>
+        <option value="h1" style="font-size: 32px;">Heading1</option>
+        <option value="h2" style="font-size: 24px;">Heading2</option>
+        <option value="h3" style="font-size: 16px;">Heading3</option>
+        <option value="h4" style="font-size: 14px;">Heading4</option>
+        <option value="h5" style="font-size: 12px;">Heading5</option>
+        <option value="h6" style="font-size: 10px;">Heading6</option>
+        <option value="p" >Normal</option>
+</select>
+    <button data-title="Bold(Ctrl+B)" data-element = "bold" class="btns zed_button_icon zed_button__bold_icon"></button>
+    <button data-title="Italic(Ctrl+I)" data-element = "italic" class="btns zed_button_icon zed_button__italic_icon"></button>
+    <button data-title="Underline(Ctrl+U)" data-element = "underline" class="btns zed_button_icon zed_button__underline_icon"></button>
+    <button data-title="Strikethrough" data-element = "strikethrough" class="btns zed_button_icon zed_button__strike_icon"></button>
+    <button data-title="Insert/Remove Bulleted List" data-element = "insertUnorderedList" class="btns zed_button_icon zed_ltr zed_button__bulletedlist_icon"></button>
+    <button data-title="Insert/Remove Numbered List" data-element = "insertOrderedList" class="btns zed_button_icon zed_button__numberedlist_icon"></button>
+    <button data-title="Link" data-element = "createLink" class="btns zed_button_icon zed_button__link_icon"></button>
+    <button data-title="Insert Code" id="code"  onclick="insertCodeBlock()" class="btns zed_button_icon zed_button__code_icon"></button>
+    <button data-title="Insert Horizontal Line" data-element="insertHorizontalRule" class="btns zed_button_icon1 zed_button__horizontalrule_icon "></button>
+    <button data-title="Block Quote" id="blockquote" class="btns zed_button_icon zed_button__blockquote_icon " onclick="insertblockquote()"></button>
+    <button data-title="Pull Quote" onclick="insertpullquote()" class="btns zed_button_icon zed_button__pullquote_icon"></button>
+    <button data-title="Poll" id="poll-button" class="btns zed_button_icon zed_button__poll_icon"></button>
+    <button id="custom-button" class="btns zed_button_icon_cb"></button>
+    <button  data-title="Image" onclick="document.querySelector('.filechose').click()"  class="btns zed_button_icon zed_button__image_icon"style="background: none; border:none;"> 
+    <input type="file" class="filechose" style="display: none;">
+    </button>
+    </div>
 
-      <button onclick="document.querySelector('.filechose').click()" style="background: none; border:none;"> 
-       <input type="file" class="filechose" style="display: none;">
-       <img src="./Images/Add Image.svg">
-   </button>
-   </div>
-<div role="textbox" contenteditable="true"  aria-multiline="true" class="editorbox" id="editbox" name="textField">
-</div>
+    <div contenteditable="true" placeholder="Enter text here..." class="editorbox" id="editbox" role="textbox"></div>
+
+
 <script src="./final.js"></script>
 </body>
 </html>

@@ -3,19 +3,16 @@
     /* border: 1px solid #000; */
     padding: 10px;
     margin: 20px auto;
-    height: 85vh;
+    height:75vh;
     overflow-y: scroll;
 }
 a,.link{
     cursor: pointer;
   }
-  .editorbox img{
+  /* .editorbox img{
     width: 100px;
     height: 100px;
-  }
-  blockquote{
-    background-color: aqua;
-  }
+  } */
   .filechose{
     border: none;
     width: 75px;
@@ -25,23 +22,16 @@ a,.link{
       border: none;
       background: none;
     }
-    /* .code1{
-        background-color:#000;
-        height:auto;
-        color:#fff;
-        padding:20px;
-      } */
-      .active1 {
-        background-color: silver;
-      }
       .edit{
         display: flex;
         gap:20px;
         flex-wrap: wrap;
-        width:780px;
+        /* width:780px; */
         border: 1px solid #EAEAEA;
         border-left: none;
         border-right: none;
+        /* margin: 0 auto; */
+        padding: 16px 32px;
       }
       .poll ul {
         list-style: none;
@@ -51,3 +41,115 @@ a,.link{
       .poll li {
         margin-top: 5px;
       }
+
+      .blockquote1 {
+        margin: 0;
+        padding: 10px;
+        border-left: 2px solid #ccc;
+        background-color: #f5f5f5;
+        font-style: italic;
+      }
+    .blockquote2{
+      border-top: 1px solid black;
+      border-bottom: 1px solid black;
+      margin: 0;
+        padding: 10px;
+        font-style: italic;
+    }
+    .code2 {
+      display: block;
+      background-color: black;
+      padding: 10px;
+      font-size: 14px;
+      line-height: 1.4;
+      color: #CAECFF;
+      border-radius: 4px;
+      /* margin: 10px 200px 10px 10px; */
+    }
+    /* .edit_icons{
+      background-image: url(./Images/Edit_icons.svg);
+    } */
+    .zed_button_icon.active{
+      background-image: url(./images/active_icons1.svg)!important;
+    }
+    .zed_button_icon:hover{
+      background-image: url(./images/hover_icons1.svg)!important;
+    }
+    .zed_button_icon_cb{
+      background-image: url(./Images/Custom_Button__Edit.svg)!important;
+      width: 96px;
+      background-repeat: no-repeat;
+    }
+    .zed_button_icon_cb:hover{
+      background-image: url(./Images/Custom_Button__Hover.svg)!important;
+    }
+    .zed_button_icon_cb.active1{
+      background-image: url(./Images/Custom_button__Active.svg)!important;
+    }
+[contenteditable=true]:empty:before{
+  content: attr(placeholder);
+  pointer-events: none;
+  display: block; 
+}
+
+.zed_button_icon1{
+background-image: url(./Images/Edit_icons1.svg);
+background-size: cover !important;
+cursor: inherit;
+background-repeat: no-repeat;
+margin-top: 1px;
+width: 24px;
+height: 24px;
+float: left;
+display: inline-block;
+}
+.zed_button_icon1:hover{
+  background-image: url(./images/hover_icons1.svg)!important;
+}
+
+    #select-option{
+    height:24px;
+    transition: 0.4s;
+    border: 1px solid #EAEAEA;
+    border-radius: 4px;
+    padding: 4px 8px;
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    }
+    /* #select-option *{
+      color: red;
+    } */
+     option{
+      padding: 10px;
+    } 
+    [contenteditable]{
+      outline:0px solid transparent;
+    }
+    [data-title] {
+      position: relative !important;
+  }
+  [data-title]:after {
+    position: absolute !important;
+    top: 26px !important;
+    width: fit-content !important;
+    font-family: "Open Sans", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    content: attr(data-title);
+    background: #fff !important;
+    font-weight: 400 !important;
+    font-size: 12px !important;
+    line-height: 16px !important;
+    color: #202020 !important;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px !important;
+    border-radius: 8px !important;
+    padding: 6px 16px !important;
+    white-space: nowrap !important;
+    opacity: 0 !important;
+    right: -24% !important;
+    visibility: hidden !important;
+}
+[data-title]:hover:after {
+  opacity: 1 !important;
+  transition: all 0.5s ease 0.2s !important;
+  visibility: visible !important;
+}
