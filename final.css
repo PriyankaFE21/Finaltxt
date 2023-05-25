@@ -21,6 +21,7 @@ a,.link{
     .btns{
       border: none;
       background: none;
+      color:#202020;
     }
       .edit{
         display: flex;
